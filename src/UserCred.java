@@ -1,4 +1,4 @@
-public class UserCred {
-
-
+public class UserCred{
+    String userName;
+    int userType;
 }
