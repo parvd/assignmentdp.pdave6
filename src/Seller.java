@@ -1,7 +1,7 @@
 
 public class Seller extends Person {
 
-    public Seller(MeatProductMenu productmenu) {
+    public Seller(ProductMenu productmenu) {
         super(productmenu);
     }
 

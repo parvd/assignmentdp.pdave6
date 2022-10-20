@@ -1,3 +1,4 @@
+
 public abstract class Person
 {
     protected ProductMenu p;
@@ -5,7 +6,7 @@ public abstract class Person
     ProductMenu theProductMenu;
 
 
-    public Person(MeatProductMenu productmenu) {
+    public Person(ProductMenu productmenu) {
     }
 
     public abstract void showMenu();

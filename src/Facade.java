@@ -61,7 +61,7 @@ public class Facade {
 
     public void createProductList()
     {
-        System.out.println(" createProductList ");
+        System.out.println("createProductList ");
     }
 
 

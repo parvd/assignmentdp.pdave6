@@ -17,10 +17,10 @@ public class Login implements LoginDec
 
         UserCred user = new UserCred();
 
-        File file = new File("src\\BuyerInfo");
+        File file = new File("src\\BuyerInfo.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
 
-        File file1 = new File("src\\SellerInfo");
+        File file1 = new File("src\\SellerInfo.txt");
         BufferedReader br1 = new BufferedReader(new FileReader(file1));
 
         String str;
@@ -52,7 +52,7 @@ public class Login implements LoginDec
         String passwd = scanner2.next();
 
         Scanner scanner3 = new Scanner(System.in);
-        System.out.println("\n"+ "Note: Value for Buyer is 0 and Value for Seller is 1  :"+"Enter the  type of user");
+        System.out.println("\n"+ "Note: Input for Buyer is 0 and for Seller is 1 \n"+"Enter the  type of user");
         int u_type = scanner3.nextInt();
 
         user.userName = u_name;
