@@ -3,6 +3,6 @@ import java.io.IOException;
 
 public interface LoginDec
 {
-    public UserCred loginMethod() throws IOException, IOException;
+    public DataUser loginMethod() throws IOException, IOException;
 
 }

@@ -4,18 +4,22 @@ import java.util.*;
 
 public class Login implements LoginDec
 {
-    ArrayList<String>buyer_name = new ArrayList<>();
-    ArrayList<String>buyer_password = new ArrayList<>();
-    ArrayList<String>seller_name = new ArrayList<> ();
-    ArrayList<String>seller_password = new ArrayList<>();
+    ArrayList<String>b_name = new ArrayList<>();
+    ArrayList<String>b_password = new ArrayList<>();
+    ArrayList<String>s_name = new ArrayList<> ();
+    ArrayList<String>s_password = new ArrayList<>();
+    String str;
+    boolean flag = true;
+    boolean is_b=false;
+    boolean is_s = false;
 
 
-
+    // Function for user login
     @SuppressWarnings({ "resource", "unused" })
     @Override
-    public UserCred loginMethod() throws IOException {
+    public DataUser loginMethod() throws IOException {
 
-        UserCred user = new UserCred();
+        DataUser user = new DataUser();
 
         File file = new File("src\\BuyerInfo.txt");
         BufferedReader br = new BufferedReader(new FileReader(file));
@@ -23,24 +27,19 @@ public class Login implements LoginDec
         File file1 = new File("src\\SellerInfo.txt");
         BufferedReader br1 = new BufferedReader(new FileReader(file1));
 
-        String str;
-
-        boolean allow_user = true;
-        boolean has_buyer=false;
-        boolean has_seller = false;
 
         while((str = br.readLine())!=null)
         {
             String [] buyers = str.split(":");
-            buyer_name.add(buyers[0]);
-            buyer_password.add(buyers[1]);
+            b_name.add(buyers[0]);
+            b_password.add(buyers[1]);
         }
 
         while((str = br1.readLine())!=null)
         {
             String[] sellers = str.split(":");
-            seller_name.add(sellers[0]);
-            seller_password.add(sellers[1]);
+            s_name.add(sellers[0]);
+            s_password.add(sellers[1]);
         }
 
         Scanner scanner1 = new Scanner(System.in);
@@ -58,53 +57,53 @@ public class Login implements LoginDec
         user.userName = u_name;
         user.userType = u_type;
 
-        for(int i=0;i<buyer_name.size();i++)
+        for(int i=0;i<b_name.size();i++)
         {
-            if(u_name.equals(buyer_name.get(i)) && passwd.equals(buyer_password.get(i)))
+            if(u_name.equals(b_name.get(i)) && passwd.equals(b_password.get(i)))
             {
-                has_buyer = true;
+                is_b = true;
             }
         }
 
-        for(int i=0;i<seller_name.size();i++)
+        for(int i=0;i<s_name.size();i++)
         {
-            if(u_name.equals(seller_name.get(i)) && passwd.equals(seller_password.get(i)))
+            if(u_name.equals(s_name.get(i)) && passwd.equals(s_password.get(i)))
             {
-                has_seller = true;
+                is_s = true;
             }
         }
 
 
         if(u_type == 0)
         {
-            if(has_buyer == true)
+            if(is_b == true)
             {
-                System.out.print("\n The User Entered is : Buyer");
+                System.out.print("\nThe User Entered is : Buyer");
             }
             else
             {
-                System.out.print("\n User with entered credentials does not exist!");
+                System.out.print("\nUser with entered credentials does not exist!");
                 System.exit(0);
             }
             Person buyer = new Buyer(new MeatProductMenu());
-            System.out.print("\n"+"BRIDGE PATTERN is implemented here"+"\n");
+            System.out.print("\n"+"Bridge Pattern is Done"+"\n");
             buyer.add();
             buyer.showMenu();
         }
         else if(u_type == 1)
         {
-            if(has_seller == true)
+            if(is_s == true)
             {
                 System.out.print("\n The User Entered is : Seller");
             }
             else
             {
-                System.out.print("\n User with entered credentials does not exist!");
-                allow_user = false;
+                System.out.print("\nWrong credentials!");
+                flag = false;
                 System.exit(0);
             }
             Person seller = new Seller(new MeatProductMenu());
-            System.out.print("\n"+"BRIDGE PATTERN is implemented here"+"\n");
+            System.out.print("\n"+"Bridge Pattern is Done"+"\n");
             seller.showMenu();
         }
         return user;

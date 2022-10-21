@@ -13,22 +13,22 @@ public abstract class Person
 
     public void add()
     {
-        System.out.print("\n Adding to the ProductMenu.");
+        System.out.print("\nAdding to the ProductMenu.");
     }
 
     public void showAddButton()
     {
-        System.out.print("\n Displaying Add Button!");
+        System.out.print("\nShowing Add Button!");
     }
 
     public void showViewButton()
     {
-        System.out.print("\n Displaying View Button!");
+        System.out.print("\nShowing View Button!");
     }
 
     public void showRadioButton()
     {
-        System.out.print("\n Displaying Radio Button!");
+        System.out.print("\nShowing Radio Button!");
     }
 
 
